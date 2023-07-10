@@ -32,3 +32,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('produk', [ProdukController::class, 'list'])->name('produk.list');
 });
+
+Route::get('/etalase', function () {
+    return view('etalase');
+})->name('etalase');;
+
+Route::get('/detail', function () {
+    return view('detail');
+})->name('detail');;
