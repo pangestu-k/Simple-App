@@ -19,7 +19,7 @@ Sebuah Aplikasi Managemen Toko Elektronik.
     <p>DB_CONNECTION=mysql</p>
     <p>DB_HOST=127.0.0.1</p>
     <p>DB_PORT=3306</p>
-    <p>DB_DATABASE=hotelku</p>
+    <p>DB_DATABASE=db_laravel_produk</p>
     <p>DB_USERNAME=root</p>
     <p>DB_PASSWORD=</p>
     
@@ -30,7 +30,7 @@ Sebuah Aplikasi Managemen Toko Elektronik.
     <p>DB_CONNECTION=pgsql</p>
     <p>DB_HOST=127.0.0.1</p>
     <p>DB_PORT=5432</p>
-    <p>DB_DATABASE=hotelku</p>
+    <p>DB_DATABASE=db_laravel_produk</p>
     <p>DB_USERNAME=postgres</p>
     <p>DB_PASSWORD=root</p>
     
