@@ -41,10 +41,9 @@ class AuthController extends Controller
             ]);
 
             Auth::attempt(request()->only('email', 'password'));
-            return redirect()->route('dashboard');
+            return redirect()->route('produk.etalase');
         } catch (QueryException $error) {
             return $error;
-            return view('errror-page');
         }
     }
 
@@ -61,13 +60,13 @@ class AuthController extends Controller
             } else {
                 if (Hash::check(request()->password, $user->password)) {
                     Auth::attempt(request()->only('email', 'password'));
-                    return redirect()->route('dashboard');
+                    return redirect()->route('produk.etalase');
                 } else {
                     return back()->with('fail', ['password' => 'Password yang anda masukan salah'])->with('email', request()->email);
                 }
             }
         } catch (QueryException $errror) {
-            return view('errror-page');
+            return $errror;
         }
     }
 
@@ -77,7 +76,7 @@ class AuthController extends Controller
             Auth::logout();
             return redirect()->route('home');
         } catch (QueryException $errror) {
-            return view('errror-page');
+            return $errror;
         }
     }
 }

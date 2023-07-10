@@ -41,113 +41,25 @@
                                 <h1 class="ps-3 pe-3">E L E K U</h1>
                             </a>
                         </div>
-                        <!-- <div class="searchMenu">
-                            <form action="">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="search" id="form1" class="form-control" />
-                                        <label class="form-label" for="form1">Search</label>
-                                    </div>
-                                    <button type="button" class="buttonSearch button button-primary">
-                                        <img src="./assets/img/icon/search_icon.svg" alt="" />
-                                    </button>
-                                </div>
-                            </form>
-                        </div> -->
                     </div>
 
                     <div class="rightSideNavbar">
-                        @if (Auth::check())
-                            <div class="afterLogin align-items-center">
-                                <li class="nav-item navbar-dropdown dropdown-user dropdown profileWrapper icon"
-                                    style="list-style: none;">
-                                    <a class="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                        @if (is_null($user['image_profile']))
-                                            <div class="avatar avatar-online">
-                                                <img src="../../assets/img/avatars/1.png" alt=""
-                                                    class="w-px-40 h-auto rounded-circle">
-                                            </div>
-                                        @else
-                                            <div class="avatar avatar-online">
-                                                <img src="{{ asset('assets/img/' . Auth::user()->image_profile) }}"
-                                                    alt="" class="w-px-40 h-auto rounded-circle">
-                                            </div>
-                                        @endif
-                                    </a>
-
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="d-flex">
-                                                    <!-- <div class="flex-shrink-0 me-3">
-                                                        @if (is_null($user['image_profile']))
-                                                            <div class="avatar avatar-online">
-                                                                <img src="./assets/img/avatars/1.png" alt=""
-                                                                    class="w-px-40 h-auto rounded-circle">
-                                                            </div>
-                                                        @else
-                                                        <div class="avatar avatar-online">
-                                                                <img src="{{ asset('assets/img/' . Auth::user()->image_profile) }}"
-                                                                    alt="" class="w-px-40 h-auto rounded-circle">
-                                                            </div>
-                                                        @endif
-                                                    </div> -->
-                                                    <div class="flex-grow-1">
-                                                        <span
-                                                            class="fw-semibold d-block">{{ Auth::user()->name }}</span>
-                                                        <small class="text-muted">{{ Auth::user()->role }}</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="dropdown-divider"></div>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="/profile">
-                                                <i class="bx bx-user me-2"></i>
-                                                <span class="align-middle">Profile Saya</span>
-                                            </a>
-                                        </li>
-                                        @if (Auth::check())
-                                            @if (Auth::user()->role == 'admin')
-                                                <li>
-                                                    <a class="dropdown-item" href="/dashboard">
-                                                        <i class="bx bx-user me-2"></i>
-                                                        <span class="align-middle">Dashboard Admin</span>
-                                                    </a>
-                                                </li>
-                                            @else
-                                            @endif
-                                        @endif
-                                        <li>
-                                            <div class="dropdown-divider"></div>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('logout') }}">
-                                                <i class="bx bx-power-off me-2"></i>
-                                                <span class="align-middle">Keluar</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                {{-- <div class="cartWrapper">
-                                    <a href="/cart" class="cart icon">
-                                        <img src="./assets/img/icon/shopping-cart_icon.svg" alt="">
-                                        <div class="totalItem">0</div>
-                                    </a>
-                                </div> --}}
-                            </div>
-                        @endif
-
                         <div class="beforeLogin">
                             <div class="buttonWrapper">
                                 @if (Route::has('login'))
                                     @auth
-                                        <div></div>
+                                        @if (auth()->user()->role == 'admin')
+                                            <a href="{{ route('dashboard') }}"
+                                                class="button button-outline button-outline-primary">Dashboard</a>
+                                        @endif
+                                        <form action="{{ route('user.logout') }}" method="POST">
+                                            @csrf
+                                            <button class="button button-outline button-outline-primary"
+                                                type="submit">Logout</button>
+                                        </form>
+                                        {{-- <a href="/login" class="button button-outline button-outline-primary">Logout</a> --}}
                                     @else
-                                        <a href="/login" class="button button-outline button-outline-primary">Dashboard</a>
+                                        <div></div>
                                     @endauth
                                 @endif
                             </div>
@@ -225,20 +137,18 @@
             slidesToShow: 3.2,
             slidesToScroll: 3,
 
-				responsive: [
-					{
-						breakpoint: 768,
-						settings: {
-							slidesToShow: 2.2,
-							slidesToScroll: 2,
-						},
-					},
-				],
-			});
-		</script>
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2.2,
+                    slidesToScroll: 2,
+                },
+            }, ],
+        });
+    </script>
 
 
-	<script>
+    <script>
         $(document).ready(function() {
             // Mengambil data dari localStorage saat halaman dimuat
             var cartData = JSON.parse(localStorage.getItem('cartData')) || [];

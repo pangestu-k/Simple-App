@@ -56,20 +56,20 @@
 
             <hr class="sidebar-divider d-none d-md-block">
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item {{ request()->routeIs('produk.list') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('produk.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Produk</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item {{ request()->routeIs('kategori.list') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('kategori.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kategori</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item {{ request()->routeIs('pesanan.list') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pesanan.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Pesanan</span></a>
             </li>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer("stok");
             $table->integer("min_stok");
             $table->text("deskripsi");
-            $table->text("foto_produk");
+            $table->text("foto_produk")->nullable();
             $table->foreignId('kategori_produk_id')->constrained('kategori_produk')->onDelete('cascade');
         });
     }
