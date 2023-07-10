@@ -11,6 +11,7 @@ Sebuah Aplikasi Managemen Toko Elektronik.
 - php artisan key:generate 
 - Buat Database di mysql atau postgree (postgree ada konfigurasi sendiri)
 - Tulis nama Database di file .env (sesuaikan dengan nama db yg dibuat)
+- php artisan storage:link
     
     <br>
     
