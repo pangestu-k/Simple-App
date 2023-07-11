@@ -19,6 +19,16 @@
     <link href="{{ asset('assets/admin-page/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin-page/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
+    <!--Slick CSS-->
+    <link rel="stylesheet" href="./assets/vendor/slick/slick.css" />
+    <link rel="stylesheet" href="./assets/vendor/slick/slick-theme.css" />
+
+    <!--App Css-->
+    <link rel="stylesheet" href="./assets/css/app.css" />
+
+    <!--Main CSS-->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+
 </head>
 
 <body id="page-top">
@@ -30,7 +40,7 @@
         <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon">
                     <img src="{{ asset('assets/image/virtual.png') }}" alt="" width="30px" height="30px">
                 </div>
@@ -94,6 +104,14 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <div class="rightSideNavbar">
+                            <div class="beforeLogin">
+                                <div class="buttonWrapper p-4">
+                                            <a href="{{ route('produk.etalase') }}"
+                                                class="button button-outline button-outline-primary">Etalase</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
