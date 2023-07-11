@@ -103,7 +103,7 @@ class ProdukController extends Controller
             $image_name = $produk->foto_produk;
         }
 
-        $pesanan = Produk::create([
+        $produk->update([
             'kode' => request()->kode,
             'nama' => request()->nama,
             'harga_beli' => request()->harga_beli,
