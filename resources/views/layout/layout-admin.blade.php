@@ -19,7 +19,7 @@
     <link href="{{ asset('assets/admin-page/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin-page/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-    <!--Slick CSS-->
+    {{-- <!--Slick CSS-->
     <link rel="stylesheet" href="./assets/vendor/slick/slick.css" />
     <link rel="stylesheet" href="./assets/vendor/slick/slick-theme.css" />
 
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="./assets/css/app.css" />
 
     <!--Main CSS-->
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" /> --}}
 
 </head>
 
@@ -51,7 +51,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -66,19 +66,22 @@
 
             <hr class="sidebar-divider d-none d-md-block">
 
-            <li class="nav-item {{ request()->routeIs('produk.list') ? 'active' : '' }}">
+            <li
+                class="nav-item {{ request()->routeIs('produk.list') || request()->routeIs('produk.create') || request()->routeIs('produk.show') || request()->routeIs('produk.edit') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('produk.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Produk</span></a>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('kategori.list') ? 'active' : '' }}">
+            <li
+                class="nav-item {{ request()->routeIs('kategori.list') || request()->routeIs('kategori.create') || request()->routeIs('kategori.edit') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('kategori.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kategori</span></a>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('pesanan.list') ? 'active' : '' }}">
+            <li
+                class="nav-item {{ request()->routeIs('pesanan.list') || request()->routeIs('pesanan.create') || request()->routeIs('pesanan.show') || request()->routeIs('pesanan.edit') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('pesanan.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Pesanan</span></a>
@@ -104,14 +107,11 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <div class="rightSideNavbar">
-                            <div class="beforeLogin">
-                                <div class="buttonWrapper p-4">
-                                            <a href="{{ route('produk.etalase') }}"
-                                                class="button button-outline button-outline-primary">Etalase</a>
-                                </div>
-                            </div>
-                        </div>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a href="{{ route('produk.etalase') }}" class="btn btn-outline-dark mt-3">Etalase</a>
+                        </li>
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
